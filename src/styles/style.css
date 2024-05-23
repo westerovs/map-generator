@@ -1,0 +1,34 @@
+:root {
+  --backgroundColor: #2c7580;
+  --textColor: #ccc;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.page {
+  min-height: 100%;
+}
+
+.page-body {
+  min-height: 100%;
+  font-size: 18px;
+  font-family: CurseCasual, Arial, Helvetica, sans-serif;
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+  touch-action: none;
+}
+
+#game {
+  display: block;
+  position: relative;
+  margin: 50px auto;
+  min-width: 400px;
+  outline: 2px solid black;
+  outline-offset: -2px;
+}
