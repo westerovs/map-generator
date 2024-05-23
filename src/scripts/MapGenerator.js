@@ -1,32 +1,35 @@
-import {CONFIG} from './config.js'
-import Brick from './Brick.js'
+import {CONFIG, TILES} from './config.js'
+import Tile from './Tile.js'
 
 export default class MapGenerator {
   constructor(ctx) {
     this.ctx = ctx
-    this.cells = []
   }
 
   generate = (level) => {
     for (let row = 0; row < level.length; row++) {
       for (let col = 0; col < level[row].length; col++) {
 
-        const srcKey = level[row][col]
-        if (!srcKey) continue
+        const tileCode = level[row][col]
+        if (tileCode === 0) continue
 
-        this.createCell(srcKey, col, row)
+        this.createTile(tileCode, col, row)
       }
     }
   }
 
-  createCell = (texture, col, row) => {
+  createTile = (tileCode, col, row) => {
+    const tileData = TILES[tileCode]
+    if (!tileData) return
+
     const x = col * CONFIG.width
     const y = row * CONFIG.height
 
-    const brick = new Brick(`./src/assets/images/${texture}.png`, x, y)
-    brick.onLoad(() => {
-      this.ctx.drawImage(brick.img, brick.x, brick.y)
-      this.cells.push(brick)
+    // добавьте проверку на тип тайла и создавайте новые сущности тут
+    let tile = new Tile(tileData.src, x, y)
+
+    tile.onLoad(() => {
+      this.ctx.drawImage(tile.img, tile.x, tile.y)
     })
   }
 }

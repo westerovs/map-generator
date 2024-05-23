@@ -1,4 +1,4 @@
-class Brick {
+class Tile {
   constructor(src, x, y) {
     this.img = new Image()
     this.img.src = src
@@ -15,4 +15,4 @@ class Brick {
   }
 }
 
-export default Brick
+export default Tile
