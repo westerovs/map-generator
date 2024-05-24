@@ -1,4 +1,4 @@
 # TEMPLATE
 🟢RUN:<br>
-https://westerovs.github.io/name/<br>
-<img src="cover.jpg">
+https://westerovs.github.io/map-generator/<br>
+<img src="cover.png">
